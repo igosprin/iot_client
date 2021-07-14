@@ -2,7 +2,7 @@ var awsIot = require('aws-iot-device-sdk');
 
 const dir='test_odessa';
 const subscribeDeviceTopic="dev/abs-payment-services/subscribe/ted/"+dir;
-const publishDeviceTopic= "/dev/abs-payment-services/publish/ted/"+dir+"/";
+const publishDeviceTopic= "dev/abs-payment-services/publish/ted/"+dir+"/";
 var device = awsIot.device({
     keyPath: `keys/${dir}/private.pem.key`,// закрытый ключ устройства
     caPath: 'keys/rootCA.pem',// CA сертификат
@@ -22,7 +22,7 @@ device.on('message', function(topic, payload) {
     console.log('messagerrr', topic, payload.toString()); 
 
 });
-device.publish(publishDeviceTopic,JSON.stringify({ type: 'terminalSettings'}),{qos:0},function(err){
+device.publish(publishDeviceTopic,JSON.stringify({ type: 'terminalSettings'}),{qos:1},function(err){
     if(err) console.log(err);
     console.log('ggggg');
 });
