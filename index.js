@@ -22,7 +22,95 @@ device.on('message', function(topic, payload) {
     console.log('messagerrr', topic, payload.toString()); 
 
 });
-device.publish(publishDeviceTopic,JSON.stringify({ type: 'terminalSettings'}),{qos:1},function(err){
+
+/*let json_={
+    type:"sessionCreate",
+    data:{
+        operation_name:"create_account",
+        userId:56
+    }
+}*/
+/*
+let json_={
+    type:"banksList",
+}*/
+
+/*let json_={
+    type:"sessionCreate",
+    data:{
+        operation_name:"transfer",
+        userId:56
+    }
+}*/
+/*let json_={
+    type:"accountCreate",
+    data:{
+        session_id:6,
+        userId:254
+    }
+}
+
+/*let json_={
+    type:"terminalAdd",
+   
+}*/
+
+/*let json_={
+    type:"accountCredit",
+    data:{
+        session_id:7,
+        accountName:'ABS399534252',
+        amount: 30
+    }
+}*/
+/*let json_={
+    type:"accountDedit",
+    data:{
+        session_id:8,
+        accountName:'ABS399534252',
+        amount: 5
+    }
+}
+
+/*let json_={
+    type:"sessionCreate",
+    data:{
+        operation_name:"debit",
+        userId:254
+    }
+}*/
+
+/*let json_={
+    type:"accountTransfer",
+    data:{
+        session_id:9,
+        accountNameFrom:'ABS399534252',
+        accountNameTo:'ABS288316600',
+        amount: 5
+    }
+}*/
+/*let json_={
+    type:"accountInfo",
+    data:{
+        accountName:'ABS399534252'
+    }
+}
+/*let json_={
+    type:"testEmail",    
+}*/
+
+/*let json_={
+    type:"accountList",
+    data:{
+        userId:254
+    }
+}*/
+let json_={
+    type:"testSms",
+    data:{
+    }
+}
+device.publish(publishDeviceTopic,JSON.stringify(json_),{qos:1},function(err){
     if(err) console.log(err);
     console.log('ggggg');
 });
